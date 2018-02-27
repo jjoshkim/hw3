@@ -39,11 +39,18 @@ class App extends Component {
     // array to hold JSX elements
     let cards = [];
     for(let i=0; i<5; i++) {
-      cards.push("http://golearntocode.com/images/cards/" + this.state.hand[i] + ".png");
+      let cardImage = "http://golearntocode.com/images/cards/" + this.state.hand[i] + ".png";
+      cards.push(
+        <img key={"card" + i} alt={i} src={cardImage} />
+      )
     }
     return (
       <div className="App">
-        <img src={cards[0]} /> <img src={cards[1]} /> <img src={cards[2]} /> <img src={cards[3]} /> <img src={cards[4]} />
+        {cards[0]}
+        {cards[1]} 
+        {cards[2]}
+        {cards[3]}
+        {cards[4]}
         <p><button onClick={() => this.dealHand()}>Deal a new hand</button></p>
       </div>
     );
